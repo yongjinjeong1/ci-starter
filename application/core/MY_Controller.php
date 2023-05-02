@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @todo : 모든 컨트롤러는 이클래스를 상속 받아 사용합니다.
- */
 class MY_Controller extends CI_Controller
 {
     # Parameter reference
