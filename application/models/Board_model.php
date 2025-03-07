@@ -12,7 +12,10 @@ class Board_model extends CI_Model {
 
     // 게시글 목록 조회
     public function get_posts($limit = null, $offset = null) {
+<<<<<<< HEAD
         $this->db->order_by('ref', 'DESC');
+=======
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
         $this->db->order_by('order_no', 'ASC');
         if($limit !== null) {
             $this->db->limit($limit, $offset);
@@ -26,6 +29,7 @@ class Board_model extends CI_Model {
     }
 
     // 게시글 검색 기능(or_like 사용하여 제목, 내용, 작성자 중 하나라도 키워드와 일치하면 결과 포함)
+<<<<<<< HEAD
     public function search_posts($keyword, $search_type = 'all', $limit = null, $offset = null) {
         $this->db->select('*');
         $this->db->from('board');
@@ -47,11 +51,18 @@ class Board_model extends CI_Model {
         // 원글 먼저, 그 다음 답글 순서로 정렬
         $this->db->order_by('parent_id', 'ASC');
         $this->db->order_by('order_no', 'DESC');
+=======
+    public function search_posts($keyword, $limit = null, $offset = null) {
+        $this->db->like('title', $keyword)
+                 ->or_like('content', $keyword)
+                 ->or_like('writer', $keyword);
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
         
         if($limit !== null) {
             $this->db->limit($limit, $offset);
         }
         
+<<<<<<< HEAD
         return $this->db->get()->result();
     }
 
@@ -68,6 +79,17 @@ class Board_model extends CI_Model {
         }
         
         $this->db->where('is_deleted', 0);
+=======
+        return $this->db->get('board')->result();
+    }
+
+    // 검색된 게시글 개수 조회(count_all_results)
+    public function count_search_posts($keyword) {
+        $this->db->like('title', $keyword)
+                 ->or_like('content', $keyword)
+                 ->or_like('writer', $keyword);
+        
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
         return $this->db->count_all_results('board');
     }
 
@@ -125,6 +147,7 @@ class Board_model extends CI_Model {
                        ->or_where('parent_id', $id)
                        ->delete('board');
     }
+<<<<<<< HEAD
 
     // 이전글 가져오기
     public function get_prev_post($order_no) {
@@ -160,6 +183,8 @@ class Board_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->update('board', ['is_deleted' => 1]);
     }
+=======
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
 } 
 
 /* 정리

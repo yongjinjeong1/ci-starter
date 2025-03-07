@@ -40,6 +40,7 @@
         .button-group a:hover {
             background: #e0e0e0;
         }
+<<<<<<< HEAD
         .prev-next-posts {
             margin: 20px 0;
         }
@@ -61,6 +62,8 @@
         .prev-next-posts a:hover {
             text-decoration: underline;
         }
+=======
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
     </style>
 </head>
 <body>
@@ -81,6 +84,7 @@
             <?php echo nl2br(htmlspecialchars($post->content)); ?>
         </div>
 
+<<<<<<< HEAD
         <div class="prev-next-posts">
             <table class="table">
                 <tr>
@@ -110,6 +114,8 @@
             </table>
         </div>
 
+=======
+>>>>>>> ab9a1cc4126fbea9907781ca063927e4e068f589
         <div class="button-group">
             <a href="<?php echo site_url('board'); ?>">목록</a>
             <a href="<?php echo site_url('board/write/'.$post->id); ?>">답글</a>
